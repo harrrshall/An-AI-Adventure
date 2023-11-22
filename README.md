@@ -33,10 +33,10 @@ export ELEVENLABS_VOICE_ID=<voice-id>
 
 In on terminal, run the webcam capture:
 ```bash
-python capture.py
+python look.py
 ```
 In another terminal, run the narrator:
 
 ```bash
-python narrator.py
+python speak.py
 ```
