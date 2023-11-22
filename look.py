@@ -5,24 +5,24 @@ import numpy as np
 import os
 
 # Folder
-folder = "frames"
+output_folder = "captured_frames"
 
 # Create the frames folder if it doesn't exist
-frames_dir = os.path.join(os.getcwd(), folder)
+frames_dir = os.path.join(os.getcwd(), output_folder)
 os.makedirs(frames_dir, exist_ok=True)
 
 # Initialize the webcam
-cap = cv2.VideoCapture(0)
+capture = cv2.VideoCapture(0)
 
 # Check if the webcam is opened correctly
-if not cap.isOpened():
+if not capture.isOpened():
     raise IOError("Cannot open webcam")
 
 # Wait for the camera to initialize and adjust light levels
 time.sleep(2)
 
 while True:
-    ret, frame = cap.read()
+    ret, frame = capture.read()
     if ret:
         # Convert the frame to a PIL image
         pil_img = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
@@ -38,7 +38,7 @@ while True:
 
         # Save the frame as an image file
         print("📸 Say cheese! Saving frame.")
-        path = f"{folder}/frame.jpg"
+        path = f"{output_folder}/frame.jpg"
         cv2.imwrite(path, frame)
     else:
         print("Failed to capture image")
@@ -47,5 +47,5 @@ while True:
     time.sleep(2)
 
 # Release the camera and close all windows
-cap.release()
+capture.release()
 cv2.destroyAllWindows()
