@@ -1,5 +1,5 @@
 # An-AI-Adventure
-speaker what you are doing using gpt4-vision
+speaks what you are doing using gpt4-vision
 
 
 
