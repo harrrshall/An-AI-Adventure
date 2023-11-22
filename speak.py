@@ -23,7 +23,6 @@ def encode_image(image_path):
             # File is being written to, wait a bit and retry
             time.sleep(0.1)
 
-
 def play_audio(text):
     audio = generate(text, voice=os.environ.get("ELEVENLABS_VOICE_ID"))
 
@@ -36,7 +35,6 @@ def play_audio(text):
         f.write(audio)
 
     play(audio)
-
 
 def generate_new_line(base64_image):
     return [
@@ -51,7 +49,6 @@ def generate_new_line(base64_image):
             ],
         },
     ]
-
 
 def analyze_image(base64_image, script):
     response = client.chat.completions.create(
@@ -72,18 +69,17 @@ def analyze_image(base64_image, script):
     response_text = response.choices[0].message.content
     return response_text
 
-
 def main():
     script = []
 
     while True:
-        # path to your image
-        image_path = os.path.join(os.getcwd(), "./frames/frame.jpg")
+        # Path to your image
+        image_path = os.path.join(os.getcwd(), "./captured_frames/frame.jpg")
 
-        # getting the base64 encoding
+        # Getting the base64 encoding
         base64_image = encode_image(image_path)
 
-        # analyze posture
+        # Analyze posture
         print("👀 David is watching...")
         analysis = analyze_image(base64_image, script=script)
 
@@ -94,9 +90,8 @@ def main():
 
         script = script + [{"role": "assistant", "content": analysis}]
 
-        # wait for 5 seconds
+        # Wait for 5 seconds
         time.sleep(5)
-
 
 if __name__ == "__main__":
     main()
