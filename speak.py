@@ -7,7 +7,7 @@ import simpleaudio as sa
 import errno
 from elevenlabs import generate, play, set_api_key, voices
 
-client = OpenAI()
+
 
 set_api_key(os.environ.get("ELEVENLABS_API_KEY"))
 
