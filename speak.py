@@ -35,8 +35,7 @@ def play_audio(text):
         f.write(audio)
 
     play(audio)
-        play(audio)
-    play(audio)
+
 
 def generate_new_line(base64_image):
     return [
