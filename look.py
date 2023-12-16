@@ -3,9 +3,6 @@ import time
 from PIL import Image
 import numpy as np
 import os
-import os
-import os
-import os
 
 # Folder
 output_folder = "captured_frames"
