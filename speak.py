@@ -2,6 +2,7 @@ import os
 from openai import OpenAI
 import base64
 import json
+import jsonimport json
 import json
 import time
 import simpleaudio as sa
